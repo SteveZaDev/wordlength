@@ -11,7 +11,7 @@ let protoWordsArray = [
     sel: false,
     parent: "",
     numOfItems: 0,
-    items: ["ABCDEF", "GHIJKL"]
+    items: ["SEARCH", "SHOULD", "PLEASE", "REVIEW", "REPORT", "OFFICE", "STATES", "COUNTY", "DURING", "MOVIES", "COURSE", "SELECT", "REALLY"]
     },
     {   
       cat: "7-Letter Words",
@@ -26,28 +26,55 @@ let protoWordsArray = [
         parent: "",
         numOfItems: 0,
         items: ["BUSINESS", "RESEARCH", "SHIPPING", "LOCATION", "COMPUTER"]
-        }
+        },
+        {   
+          cat: "9-Letter Words",
+          sel: false,
+          parent: "",
+          numOfItems: 0,
+          items: ["AVAILABLE", "FOLLOWING", "INSURANCE", "FINANCIAL", "COMMITTEE", "PRESIDENT", "SOLUTIONS", "SUBSCRIBE", "PUBLISHED", "COUNTRIES", "INSTITUTE", "SELECTION", "DOCUMENTS", "THEREFORE", "EXELLENT"]
+          },
+          {   
+            cat: "10-Letter Words",
+            sel: false,
+            parent: "",
+            numOfItems: 0,
+            items: ["UNIVERSITY", "DEPARTMENT", "ACTIVITIES", "DISCUSSION", "EVERYTHING", "REGISTERED", "ELECTRONIC", "INVESTMENT", "POPULATION", "CONNECTION", "CONSIDERED", "COMPONENTS", "BACKGROUND", "THROUGHOUT", "PROCEDURES", "LITERATURE"]
+            },
+            {   
+              cat: "11-Letter Words",
+              sel: false,
+              parent: "",
+              numOfItems: 0,
+              items: ["INFORMATION", "APPLICATION", "ENVIRONMENT", "APPROPRIATE", "RESTAURANTS", "PUBLICATION", "ESTABLISHED", "INTERESTING", "COMMUNITIES", "IMPROVEMENT", "DISCUSSIONS", "SUGGESTIONS", "LEGISLATION", "COMBINATION", "INTERRACIAL", "DIFFERENCES", "COLLECTIONS", "PROCEEDINGS", "AUTHORITIES", "RECOGNITION", "PERSPECTIVE"]
+              },
+              {   
+                cat: "12-Letter Words",
+                sel: false,
+                parent: "",
+                numOfItems: 0,
+                items: ["PROFESSIONAL", "AVAILABILITY", "PUBLICATONS", "INSTRUCTIONS", "ARCHITECTURE", "INTELLIGENCE", "SUBSCRIPTION", "CONSERVATION", "COMPENSATION", "TRANSACTIONS", "CONSULTATION", "NOTIFICATION", "SUCCESSFULLY", "COMMISSIONER", "DISABILITIES", "DESTINATIONS", "INDEPENCENCE", "REPRODUCTION"]
+                }                    
  ]
 
 const backgroundImagesPortrait=[
- // "https://images.pexels.com/photos/1834407/pexels-photo-1834407.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  "https://images.pexels.com/photos/2627945/pexels-photo-2627945.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  "https://images.pexels.com/photos/302743/pexels-photo-302743.jpeg",
-  "https://images.pexels.com/photos/221502/pexels-photo-221502.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  "https://cdn.pixabay.com/photo/2017/08/31/11/35/alps-2700403_960_720.jpg",
-  "https://images.unsplash.com/photo-1543837173-6c26bc89937b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YXV0dW1ufGVufDB8MXwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-  "https://images.unsplash.com/photo-1553114836-026cecec9778?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fG5hdHVyZXxlbnwwfDF8MHx8&auto=format&fit=crop&w=500&q=60"
-//  "https://cdn.pixabay.com/photo/2023/01/22/12/17/flower-7736238__340.jpg"
+  "https://images.unsplash.com/photo-1553114836-026cecec9778?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fG5hdHVyZXxlbnwwfDF8MHx8&auto=format&fit=crop&w=500&q=60",
+  "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2F7%2F5%2F2%2F1205826-download-hd-wallpaper-for-mobile-1080x1920-phone.jpg&f=1&nofb=1&ipt=0f48b165169fc218b7d8b97e67e9af5252f24c633ea559b983689b6e12ae6368&ipo=images",
+  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5Eddf-iZqa_MN20nbwtGiwHaNK%26pid%3DApi&f=1&ipt=e9a94fc1d40cd71c607f25e392e4dd43f44b2b4587ff4a20a7536657371aaefd&ipo=images",
+  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.DgWmLmqIFmZq0hIjdsFIngHaNK%26pid%3DApi&f=1&ipt=3abac1e88f83e0a9d81250c5cc0bda9dba4544f0412c75931041b79889040243&ipo=images",
+  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.hCfUGUsPp7K3nz5UDJIN9gHaNL%26pid%3DApi&f=1&ipt=670930a20968989d17c8dcec1feae79e5e0b0728aa47f9dbdd135bce667dfed6&ipo=images"
 ]
 
 const backgroundImagesLandscape=[
-  "https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=1600",
-  "https://cdn.pixabay.com/photo/2021/01/09/20/23/road-5903402__340.jpg",
-  "https://images.pexels.com/photos/221502/pexels-photo-221502.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  "https://cdn.pixabay.com/photo/2017/08/31/11/35/alps-2700403_960_720.jpg",
-  "https://images.pexels.com/photos/302743/pexels-photo-302743.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  "https://images.unsplash.com/photo-1566155119454-2b581dd44c59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDZ8fHNwcmluZ3xlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60"
+  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.XGH64ptpzA7Wkx1X92LJYQHaEK%26pid%3DApi&f=1&ipt=208ed7a56cd2e7e58bf1e4d01ef3d008bfcebcfaedc947e710e3d21a030abf44&ipo=images",
+  "https://wallpapercave.com/dwp1x/wp3137839.jpg",
+  "https://wallpapercave.com/dwp1x/wp3137841.jpg",
+  "https://wallpapercave.com/dwp1x/wp2860302.jpg",
+  "https://wallpapercave.com/dwp1x/wp3137994.jpg",
+  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP._CSC4ivQBcOBLoOb3My4awHaEK%26pid%3DApi&f=1&ipt=c9ccf97c6abae469cb8c7525d2bde5c40414ecc636d18dce448cfadcaad9c05f&ipo=images"
 ]
+
+
 
 const audios=[ {name: "default",
                 link: "./auds/bgmusic.mp3",
@@ -1664,6 +1691,7 @@ function initPreferencesModal() {
       bgs[i].addEventListener("click", ({ target }) => {
 
         let bg = target.getAttribute("src");
+        console.log("bg = " + bg )
         const body = document.getElementsByTagName('body')[0];
         body.style.backgroundImage = "url(" + bg + ")"
         window.localStorage.setItem('backgroundL', JSON.stringify(bg));
