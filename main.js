@@ -4,7 +4,7 @@ let protoWordsArray = [
     sel: true,
     parent: "",
     numOfItems: 0,
-    items: ["ABOUT", "THERE", "CLICK", "WORLD", "WHERE", "ORDER", "GAMES", "STORE", "THOSE", "BASED", "BEING", "PAGES", "POWER", "PLACE", "MEDIA", "WHITE", "LEVEL", "SHALL", "EVERY", "VALUE"]
+    items: ["ABOUT", "THERE", "CLICK", "WORLD", "WHERE", "ORDER", "GAMES", "STORE", "THOSE", "BASED", "BEING", "PAGES", "POWER", "PLACE", "MEDIA", "WHITE", "LEVEL", "SHALL", "EVERY", "VALUE", "STOCK", "TABLE", "MOVIE", "STUDY", "NEVER", "OTHER", "FIRST", "PRICE", "MUSIC", "BOOKS", "ITEMS", "COULD", "TERMS", "USING", "BLACK", "WOMEN", "FOUND", "WHILE", "THINK", "SINCE", "SMALL", "HOURS", "CLASS", "VISIT", "PRESS", "POINT", "START", "MARCH", "STAFF", "USERS", "WHICH", "WOULD", "STATE", "AFTER", "LINKS", "GROUP", "GREAT", "NIGHT", "PHONE", "CHECK", "TODAY", "HOUSE", "THREE", "NORTH", "GUIDE", "TIMES", "IMAGE", "STILL", "TOOLS", "LEARN", "SALES", "MODEL", "AGAIN", "TOPIC", "THEIR", "THESE", "VIDEO", "YEARS", "UNDER", "HOTEL", "LOCAL", "FORUM", "INDEX", "SOUTH", "PHOTO", "TOTAL", "POSTS", "BOARD", "SITES", "TITLE", "MONEY", "REPLY", "PRINT", "LARGE", "HUMAN", "GOING", "BELOW"]
     },
     {
     cat: "6-Letter Words",
@@ -18,14 +18,14 @@ let protoWordsArray = [
       sel: false,
       parent: "",
       numOfItems: 0,
-      items: ["CONTACT", "MESSAGE", "GENERAL", "DETAILS", "SUBJECT"]
+      items: ["CONTACT", "MESSAGE", "GENERAL", "DETAILS", "SUBJECT", "VERSION", "NETWORK", "CONTROL", "PROFILE", "CONTENT", "INCLUDE", "PROCESS", "GALLERY", "MEDICAL", "AGAINST", "OPTIONS", "RELEASE", "SIMILAR", "STORIES", "COUNCIL", "EDITION", "STUDIES", "POWERED", "RECORDS", "HOSTING", "ANOTHER", "COUNTRY", "COLLEGE", "SCIENCE", "HOWEVER", "LOOKING", "PAYMENT", "REQUEST", "SCHOOLS", "JOURNAL", "ARCHIVE", "FURTHER", "SEVERAL", "NATURAL", "PRESENT", "TICKETS", "PRODUCT", "PRIVACY", "REVIEWS", "RESULTS", "SPECIAL", "RELATED", "WITHOUT", "ACCOUNT", "QUALITY", "PRIVATE", "ARTICLE", "COMMENT", "STUDENT", "EXAMPLE", "PICTURE", "MILLION", "REPORTS", "SOCIETY", "UPDATED", "DISPLAY", "WHETHER", "WRITTEN", "FINANCE", "COMPARE", "PROVIDE", "WINDOWS", "LIBRARY", "WORKING", "PROBLEM", "CHANGES", "MEETING", "POPULAR", "CENTRAL", "FRIENDS", "ALREADY", "LIMITED", "AVERAGE", "FEDERAL", "MINUTES"]
       },
       {   
         cat: "8-Letter Words",
         sel: false,
         parent: "",
         numOfItems: 0,
-        items: ["BUSINESS", "RESEARCH", "SHIPPING", "LOCATION", "COMPUTER"]
+        items: ["BUSINESS", "RESEARCH", "SHIPPING", "LOCATION", "COMPUTER", "PREVIOUS", "TRAINING", "REQUIRED", "STANDARD", "QUESTION", "POSSIBLE", "DELIVERY", "PROVIDES", "DATABASE", "RESOURCE", "FUNCTION", "RECEIVED", "POSITION", "RESPONSE", "DISCOUNT", "ACTIVITY", "SUPPLIES", "ANYTHING", "CLOTHING", "SERVICES", "COMMENTS", "RESERVED", "DOWNLOAD", "CHILDRED", "PROPERTY", "ADVANCED", "FEATURES", "ARTICLES", "PROGRAMS", "BUILDING", "PROBLEMS", "ORIGINAL", "SPECIFIC", "OFFICIAL", "DOCUMENT", "ECONIMIC", "ARCHIVES", "LISTINGS", "PRACTICE", "REMEMBER", "ALTHOUGH", "EXCHANGE", "MORTGAGE", "MILITARY", "PRODUCTS", "MATIONAL", "SECURITY", "PICTURES", "STUDENTS", "CUSTOMER", "CATEGORY", "INDUSTRY", "FEEDBACK", "LANGUAGE", "INTEREST", "INCLUDES", "DIRECTOR", "DISTRICT", "MATERIAL", "PROJECTS", "MAGAZINE", "WIRELESS", "HARDWARE", "INCREASE", "CONTENTS", "CONTINUE", "SOLUTION", "DECISION", "SOFTWARE", "INTERNET", "PERSONAL", "SHOPPING", "REGISTER", "PROVIDED", "COMPLETE", "PASSWORD", "ANALYSIS", "LEARNING", "MESSAGES", "PLANNING", "CALENDAR", "TOGETHER", "INCLUDED", "POLICIES", "PURCHASE", "DESIGNED", "REGIONAL", "BENEFITS", "ADDITION", "DIVISION"]
         },
         {   
           cat: "9-Letter Words",
@@ -1632,6 +1632,19 @@ function initPreferencesModal() {
   const textAreaEl = document.querySelector("textarea");
  // preferencesContainerEl.style.display="none"
   portraitPreferencesContainerEl.style.display="none"
+
+
+  let randomImagesEl = document.querySelectorAll('#random-bg-container img');
+for (i=0; i<6; i++){
+  randomImagesEl[i].src = backgroundImagesLandscape[i];
+}
+
+
+let oneImagesEl = document.querySelectorAll('#one-bg-container img');
+for (i=0; i<6; i++){
+  oneImagesEl[i].src = backgroundImagesLandscape[i];
+}
+
 
   // When the user clicks on the button, open the modal
   btn.addEventListener("click", function () {
