@@ -357,8 +357,9 @@ button.correct-letter-in-place {
   width: 95%;
   max-width: 450px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  animation-name: animatetop;
-  animation-duration: 1.5s;
+  /* animation-name: animatetop;*/
+  animation-name: fade-in;
+  animation-duration: 2.5s;
   border-radius: 0.3rem;
   text-align: left;
 
@@ -682,5 +683,33 @@ hr{
   }
   100% {
     transform: translateY(0)
+  }
+}
+
+
+@keyframes fade-in{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out{
+  100% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up{
+  0%{
+    transform: translateY(100%);
+  }
+  100%{
+    transform: translateY(0%);
   }
 }
