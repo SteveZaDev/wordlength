@@ -770,3 +770,7 @@ hr{
   animation-duration: 2.5s;
   display: none;
 }
+
+textarea{
+  height: 90px;
+}
