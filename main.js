@@ -91,8 +91,8 @@ const audios=[ {name: "default",
               link: "./auds/dream.mp3",
               vol: .25
             },
-                {name: "Classical Gas",
-                link: "./auds/classicalgas.m4a",
+                {name: "Ambition",
+                link: "./auds/mixkitdrivingambition.mp3",
                 vol: .25
               }
              ]
@@ -117,7 +117,7 @@ let helpText = `WORDLENGTH plays like original Wordle with the exception that yo
 `
 
 let viewHelpText = `Welcome to WORDLENGTH! Please read the help(?) for info and tips on game play.`
-let sound = true;
+let sound = "up";
 let soundPlayer = "";
 let randomAudioIdx = Math.floor(Math.random()*audios.length)
 soundPlayer = new Audio (audios[randomAudioIdx].link);
@@ -127,6 +127,7 @@ soundPlayer.volume = audios[randomAudioIdx].vol
 soundPlayer.currentTime = 1;
 const maxLettersNarrowScreen = 21;
 let chameleon = false;
+
 DANCE_ANIMATION_DURATION = 1500;
 MAX_HISTORY_ITEMS = 500;
 
@@ -283,11 +284,12 @@ gameInProgress = true;
     }
   } while (!foundCategory)
 
-
+/* pinned off on June 17
   const randomArrayWork = window.localStorage.getItem("randomArrayL") || 0;
   if (randomArrayWork){
     randomArray = randomArrayWork;
   }
+  */
 
   
   
@@ -493,6 +495,10 @@ const DICTIONARY_API_BASE_URL =
      // const guessedWord = currentWordArr.join("");
         // XXXXXXXXXXXXXXXXXXXXXX
         window.navigator.vibrate(450);
+        // June 17 bypass when all sound is off.
+        if (sound === "off" || sound === "up"){
+          window.navigator.vibrate(450);
+        }
         //flipTile();
         gameActive = true;
         atLeastOneGuessMade = true;
@@ -627,8 +633,13 @@ const DICTIONARY_API_BASE_URL =
         if (guessedWordUpper === wordle){
           messageContainerEl.innerText = "Congratulations!"
           gameActive = false;
-          const audio = new Audio ("./auds/success.mp3");
-          audio.play()
+          //  June 17 2023
+          randCatEl.style.display = "block"
+          //
+          if (sound === "off" || sound === "up"){
+            const audio = new Audio ("./auds/success.mp3");
+            audio.play()
+            }
           danceTiles(currentWordArr, firstLetterId);
           resultObj.guesses = guessedWordCount;
           let resultsArrayTemp = JSON.parse(window.localStorage.getItem('resultsL'));
@@ -682,8 +693,10 @@ const DICTIONARY_API_BASE_URL =
           messageContainerEl.innerText = (`Sorry, no more guesses. The wordle is ${wordle}`)
           gameActive = false;
           window.localStorage.setItem("currentStreakL", 0);
-          const audio = new Audio ("./auds/negative.mp3");
-          audio.play()
+          if (sound === "off" || sound === "up"){
+            const audio = new Audio ("./auds/negative.mp3");
+            audio.play()
+          }
           updateTotalGames();     setTimeout(function(){
          //   messageContainerEl.innerText = ""
             playButtonEl.innerText = "Play Again?";
@@ -697,8 +710,11 @@ const DICTIONARY_API_BASE_URL =
           return;
         } 
     
-        const audio = new Audio ("./auds/ascending.mp3");
-        audio.play()
+        if (sound === "off" || sound === "up"){
+          const audio = new Audio ("./auds/ascending.mp3");
+          audio.play()
+        }
+    
         guess.forEach(guess => {
           console.log("letter = " + guess.letter + " color = " + guess.color)
         }
@@ -1126,8 +1142,10 @@ function initHelpModal() {
     modal.style.display = "block";
     helpEl = document.querySelector(".modal-body")
     helpEl.innerHTML = helpText
-    const audio = new Audio ("./auds/stats.mp3");
-    audio.play()
+    if (sound === "off" || sound === "up"){
+      const audio = new Audio ("./auds/stats.mp3");
+      audio.play() 
+      }
     window.localStorage.setItem('viewedhelpL', "viewed");
  //   helpEl.requestFullscreen();
   });
@@ -1176,9 +1194,10 @@ function updateStatsModal(){
   const maxStreak = window.localStorage.getItem("maxStreakL");
   const totalWins = window.localStorage.getItem("totalWinsL");
   const totalGames = window.localStorage.getItem("totalGamesL");
-  const audio = new Audio ("./auds/stats.mp3");
-  audio.play()
-
+  if (sound === "off" || sound === "up"){
+    const audio = new Audio ("./auds/stats.mp3");
+    audio.play()
+    }
   document.getElementById('total-played').textContent = totalGames;
   document.getElementById('total-wins').textContent = totalWins;
   document.getElementById('current-streak').textContent = currentStreak;
@@ -1251,6 +1270,9 @@ function initStatsModal() {
       // When the user clicks on No, close delete modal
       noEl.addEventListener("click", function () {
         delModal.style.display = "none";
+        // June 16
+        resetGameState();
+        //
       });
       
 
@@ -1485,12 +1507,16 @@ function initCategoriesModal() {
        // window.alert(category.innerText + category.id)
         protoWordsArray[category.id].sel = !(protoWordsArray[category.id].sel)
         if (protoWordsArray[category.id].sel){
-          const audio = new Audio ("./auds/shortgood.mp3");
-          audio.play()
+          if (sound === "off" || sound === "up"){
+            const audio = new Audio ("./auds/shortgood.mp3");
+            audio.play()
+            }
         } 
         else {
-          const audio = new Audio ("./auds/pop39222.mp3");
-          audio.play()     
+          if (sound === "off" || sound === "up"){
+            const audio = new Audio ("./auds/pop39222.mp3");
+            audio.play()  
+            }      
         }
         if (protoWordsArray[category.id].parent==="parent"){
           let children = document.querySelectorAll(".child"+protoWordsArray[category.id].cat)
@@ -1544,8 +1570,10 @@ function initCategoriesModalBtn(){
     btn.addEventListener("click", function () {
       console.log("just clicked on categories button")
       updateCategoriesModal();
-      const audio = new Audio ("./auds/stats.mp3");
-      audio.play()
+      if (sound === "off" || sound === "up"){
+        const audio = new Audio ("./auds/stats.mp3");
+        audio.play()
+        }
       modal.style.display = "block";
       helpEl = document.getElementById("categories-modal")
      });
@@ -1614,27 +1642,37 @@ function initAudio(){
 let icon = document.querySelector(".fa-volume-up");
 
 icon.onclick = function (){
-    music();
-    console.log("classlist when clicked = " + icon.classList)
-    if(icon.classList.contains("fa-volume-up")){
-        icon.classList.replace("fa-volume-up", "fa-volume-off");
-    }
-    else{
-        icon.classList.replace("fa-volume-off", "fa-volume-up");
-    }
+  console.log("classlist when clicked = " + icon.classList)
+  if(icon.classList.contains("fa-volume-up")){
+      icon.classList.replace("fa-volume-up", "fa-volume-off");
+      sound = "off"
+  }
+  else if(icon.classList.contains("fa-volume-off")){
+      icon.classList.replace("fa-volume-off", "fa-volume-mute");
+      icon.classList.replace("fa", "fas");
+      sound = "mute"
+  }
+  else {
+    icon.classList.replace("fa-volume-mute", "fa-volume-up");
+    icon.classList.replace("fas", "fa");
+    sound = "up"
+  }
+music();
 }
 }
 
 
 function music(){
+  // June 11, 2023 make it a 3 way toggle  up-off-mute
   console.log("entered music toggle")
-  sound = !sound;
-  if (sound===false){
+
+  if (sound==="off" || sound==="mute"){
     if (soundPlayer){
       soundPlayer.pause();
     }
   }
-  if (sound===true){
+
+  if (sound==="up"){
     if (soundPlayer){
       soundPlayer.play();
     }
@@ -1643,7 +1681,7 @@ function music(){
 
 
 function playMusic(){
-  if (sound){
+  if (sound==="up"){
   soundPlayer.play();
   }
 }
@@ -1685,8 +1723,10 @@ for (i=0; i<6; i++){
   // When the user clicks on the button, open the modal
   btn.addEventListener("click", function () {
     console.log("just clicked on preferences button")
-    const audio = new Audio ("./auds/stats.mp3");
-    audio.play()
+    if (sound === "off" || sound === "up"){
+      const audio = new Audio ("./auds/stats.mp3");
+      audio.play()
+      }
     modal.style.display = "block";
     helpEl = document.getElementById("preferences-modal")
   });
@@ -1803,14 +1843,18 @@ function initChameleon() {
         if (chameleon){
           chameleonEl.style.color = 'black';
           chameleonEl.style.fontWeight = 'bold';
-          const audio = new Audio ("./auds/shortgood.mp3");
-          audio.play()
+          if (sound === "off" || sound === "up"){
+            const audio = new Audio ("./auds/shortgood.mp3");
+            audio.play()
+            }
         } else {
           chameleonEl.style.color = 'gray'; 
           chameleonEl.style.fontWeight = 'normal';
-          const audio = new Audio ("./auds/pop39222.mp3");
-          audio.play() 
+          if (sound === "off" || sound === "up"){
+            const audio = new Audio ("./auds/pop39222.mp3");
+            audio.play()
         }
+      }
           });
   }
 
@@ -1897,6 +1941,10 @@ function loadLocalStorage(){
   if (kContainer){
     calcLettersandGuesses();
     messageContainerEl.innerText = "Last Wordlength game was interrupted - continue at point it was lost";
+    // add on june 17 2023 code to hide the display categories button
+    randCatEl = document.getElementById("randcat")
+    randCatEl.style.display = "none"
+    //
     atLeastOneGuessMade = true;
     setTimeout(function(){
   }, 4500);
