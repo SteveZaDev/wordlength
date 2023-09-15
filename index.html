@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BRCC2WHL7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-1BRCC2WHL7');
+  </script>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WordLength</title>
@@ -33,7 +45,7 @@
           <div class="toggle"><i class="fa fa-volume-up" id="aud-icon"></i></div> -->
        <i class="fa fa-volume-up" id="aud-icon"></i>
           <i class="fa fa-bars" id="categories" aria-hidden="true"></i>
-          <i id="randcat" class="fas fa-search"></i>
+          <i id="display" class="fas fa-search"></i>
         </div>
       </header>
 
@@ -118,7 +130,7 @@
       <div class="modal-body" id="view-help">
       </div>
 
-  </div>
+    </div>
   </div>
 
 
@@ -161,6 +173,34 @@
 
     </div>
   </div>
+
+
+  <div id="display-modal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="word">WORDS</h2>
+       <span class="close" id="close-display">&times;</span>
+      </div>
+
+        <div class="display-container">
+ 
+         </div>
+
+        <div class="displays">
+              <hr>
+              <div id="display-tray">
+              </div>  <!-- end of display  tray -->
+        </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
 
   <div id="categories-modal" class="modal">
     <!-- Modal content -->
